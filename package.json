@@ -4,7 +4,9 @@
   "description": "Репозиторий для тестового задания в VK Tech. Вся документация - в README проекта.",
   "main": "index.js",
   "scripts": {
-    "test": "npm test"
+    "test": "npx playwright test",
+    "ui": "npx playwright show-report",
+    "debug": "npx playwright test --debug"
   },
   "repository": {
     "type": "git",
@@ -20,8 +22,6 @@
   "homepage": "https://github.com/Myotraykt/vkteams#readme",
   "devDependencies": {
     "@playwright/test": "^1.53.1",
-    "@types/node": "^24.0.3",
-    "playwright": "^1.51.0",
-    "typescript": "^5.2.2"
+    "@types/node": "^24.0.3"
   }
 }
