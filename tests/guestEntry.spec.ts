@@ -19,12 +19,11 @@ test.describe('Вход в конференцию VK Teams', () => {
   });
 
   test('Запрос разрешений для звука и видео', async ({ context, page, browserName }) => {
-    // Разрешаем разрешения только для не-Firefox браузеров
     if (browserName !== 'firefox') {
       await context.grantPermissions(['microphone', 'camera']);
     }
   
-    // Для Firefox эмулируем navigator.mediaDevices
+    // Для firefox эмулируем navigator.mediaDevices
     if (browserName === 'firefox') {
       await page.addInitScript(() => {
         Object.defineProperty(navigator, 'mediaDevices', {
@@ -55,7 +54,7 @@ test.describe('Вход в конференцию VK Teams', () => {
       }
     });
   
-    // Проверяем результаты только для не-Firefox браузеров
+    // для браузеров, отличных от firefox
     if (browserName !== 'firefox') {
       expect(permissionsState.mic).toBe(undefined);
       expect(permissionsState.cam).toBe(undefined);
